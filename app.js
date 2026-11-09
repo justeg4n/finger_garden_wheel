@@ -69,7 +69,16 @@ function drawWheel() {
   const point = (angle, r) => [300+Math.sin(angle*Math.PI/180)*r,300-Math.cos(angle*Math.PI/180)*r];
   $('#wheel-svg').innerHTML = animals.map((a,i) => {
     const start = point(i*72-36,296), end = point(i*72+36,296);
-    return `<g><path d="M300 300L${start.join(' ')}A296 296 0 0 1 ${end.join(' ')}Z" fill="${a.color}" stroke="#fffaf0" stroke-width="4"/><g transform="rotate(${i*72} 300 300)"><path d="M159 99A253 253 0 0 1 441 99" fill="none" stroke="#fffdf1" stroke-width="2" stroke-dasharray="7 8" stroke-linecap="round"/><text x="300" y="73" text-anchor="middle" fill="${a.ink}" font-family="'Baloo 2',system-ui,sans-serif" font-weight="800" font-size="27">${a.count} ngón tay</text>${art('animals',i,'','','x="241" y="85" width="118" height="112"')}<text x="300" y="215" text-anchor="middle" fill="${a.ink}" font-family="'Baloo 2',system-ui,sans-serif" font-weight="700" font-size="22">${a.name}</text><text x="300" y="237" text-anchor="middle" fill="${a.ink}" font-family="Nunito,system-ui,sans-serif" font-size="15">${a.rhyme}</text></g></g>`;
+    return `<g>
+      <path d="M300 300L${start.join(' ')}A296 296 0 0 1 ${end.join(' ')}Z" fill="${a.color}" stroke="#fffaf0" stroke-width="4"/>
+      <g transform="rotate(${i*72} 300 300)">
+        <path d="M159 99A253 253 0 0 1 441 99" fill="none" stroke="#fffdf1" stroke-width="2" stroke-dasharray="7 8" stroke-linecap="round"/>
+        <text x="300" y="73" text-anchor="middle" fill="${a.ink}" font-family="'Baloo 2',system-ui,sans-serif" font-weight="800" font-size="27">${a.count} ngón tay</text>
+        ${art('animals',i,'','','x="241" y="85" width="118" height="90"')}
+        <text x="300" y="194" text-anchor="middle" fill="${a.ink}" font-family="'Baloo 2',system-ui,sans-serif" font-weight="700" font-size="22">${a.name}</text>
+        <text x="300" y="216" text-anchor="middle" fill="${a.ink}" font-family="Nunito,system-ui,sans-serif" font-weight="700" font-size="18">${a.rhyme}</text>
+      </g>
+    </g>`;
   }).join('');
   $('.wheel-lights').innerHTML = Array.from({length:25},(_,i) => { const angle=i/25*Math.PI*2; return `<i style="--lx:${Math.sin(angle)*47.6}%;--ly:${-Math.cos(angle)*47.6}%"></i>`; }).join('');
 }
