@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fffaf1" />
+  <meta name="description" content="Vườn thú ngón tay – vòng quay tương tác dành cho trẻ mầm non. Cùng khám phá 5 con vật, đếm ngón tay và vận động thật vui!" />
+  <title>Vườn thú ngón tay</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div class="page-decoration decoration-one" aria-hidden="true">✳</div>
+  <header class="header wrap">
+    <a href="./" class="brand" aria-label="Vườn thú ngón tay, trang chủ"><span class="brand-flower" aria-hidden="true">✿</span><span>vườn thú<span class="brand-sub">NGÓN TAY</span></span></a>
+    <nav aria-label="Công cụ trò chơi">
+      <button class="icon-button" id="sound-button" title="Tắt âm thanh" aria-label="Tắt âm thanh"></button>
+      <button class="icon-button" id="fullscreen-button" title="Toàn màn hình" aria-label="Toàn màn hình"></button>
+      <button class="help-button" id="help-button"><span>?</span> Cách chơi</button>
+    </nav>
+  </header>
+  <main class="wrap">
+    <section class="intro" aria-labelledby="page-title">
+      <div class="eyebrow"><span>✦</span> MỖI NGÓN TAY, MỘT NGƯỜI BẠN</div>
+      <h1 id="page-title">Vườn thú <span>ngón tay<svg viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M4 11 Q145 -5 296 8"/></svg></span></h1>
+      <p>Một vòng quay nhỏ, muôn điều kỳ diệu.<br class="mobile-break"> Cùng biến những ngón tay thành con vật đáng yêu!</p>
+      <span class="intro-spark" aria-hidden="true">✧</span>
+    </section>
+    <section class="play-area" aria-label="Vòng quay ngón tay hóa thân">
+      <div class="wheel-section">
+        <div class="floating-note note-left" aria-hidden="true">Quay một vòng,<br>vui cả lớp!<svg viewBox="0 0 80 60"><path d="M5 8 Q8 57 67 43 M55 33 L68 43 L54 49"/></svg></div>
+        <div class="wheel-stage">
+          <div class="wheel-shadow"></div>
+          <div class="wheel-base"></div>
+          <div class="wheel-frame">
+            <div class="wheel-lights" aria-hidden="true"></div>
+            <div class="wheel-disc" id="wheel-disc"><svg id="wheel-svg" viewBox="0 0 600 600" role="img" aria-label="Vòng quay gồm muỗi, thỏ, mèo, cua và bướm"></svg></div>
+            <button id="wheel-center" class="wheel-center" aria-label="Quay vòng quay"><span>✦</span></button>
+          </div>
+          <div class="pointer" aria-hidden="true"><svg viewBox="0 0 60 78"><path d="M5 25C5 -3 55 -3 55 25C55 43 30 72 30 72S5 43 5 25Z"/><circle cx="30" cy="23" r="9"/></svg></div>
+        </div>
+        <button class="spin-button" id="spin-button"><span class="spin-icon">↻</span> <span id="spin-label">Quay nào, bé ơi!</span><span aria-hidden="true">✦</span></button>
+        <button class="wheel-mode" id="wheel-mode" aria-label="Mở cài đặt chế độ quay"></button>
+        <p class="cycle-message" id="cycle-message" aria-live="polite"></p>
+        <p class="keyboard-hint">Nhấn <kbd>Space</kbd> hoặc chạm vào vòng quay</p>
+      </div>
+      <aside class="activity-card" id="activity-card" aria-label="Hướng dẫn vận động">
+        <div class="card-topline"><span class="small-label" id="result-badge"><span class="little-dot"></span> GÓC BIẾN HÓA</span><span class="card-spark" aria-hidden="true">✧</span></div>
+        <div id="activity-content" aria-live="polite" aria-atomic="true"></div>
+        <div class="card-bottom"><span class="tiny-flower" aria-hidden="true">✿</span> Ngón tay khéo léo, trí tưởng tượng bay xa</div>
+      </aside>
+    </section>
+    <section class="friends-section" aria-labelledby="friends-heading">
+      <div class="section-heading"><div><span class="section-kicker">5 NGƯỜI BẠN NHỎ</span><h2 id="friends-heading">Bé làm quen trước nhé!</h2></div><button class="text-button" id="settings-button"><span id="settings-icon"></span> Tùy chỉnh vòng quay</button></div>
+      <div class="friends-grid" id="friends-grid"></div>
+      <p class="friends-hint">Chạm vào một người bạn để xem cách làm động tác <span aria-hidden="true">↗</span></p>
+    </section>
+    <section class="journey" aria-label="Các bước chơi"><div><span class="step-number">1</span><p><strong>Quay vòng quay</strong><span>Khám phá người bạn bất ngờ</span></p></div><span class="journey-arrow" aria-hidden="true">⤳</span><div><span class="step-number">2</span><p><strong>Giơ đúng số ngón tay</strong><span>Quan sát và nhúc nhích thật khéo</span></p></div><span class="journey-arrow" aria-hidden="true">⤳</span><div><span class="step-number">3</span><p><strong>Cùng nói, cùng làm</strong><span>Cả lớp hóa thân thành con vật!</span></p></div></section>
+    <section class="history-section" id="history-section" hidden><div class="section-heading"><h2>Những người bạn vừa gặp</h2><button class="text-button" id="reset-button">Chơi lại từ đầu ↻</button></div><ol id="history-list"></ol></section>
+  </main>
+  <footer class="wrap footer"><span><span aria-hidden="true">✿</span> Những bàn tay nhỏ. Những khám phá lớn.</span><span>Dành cho bé từ 3–6 tuổi <span class="footer-heart">♡</span></span></footer>
+  <dialog id="help-dialog" aria-labelledby="help-title"><button class="dialog-close" aria-label="Đóng hướng dẫn">×</button><div class="dialog-flower" aria-hidden="true">✿</div><span class="section-kicker">CÙNG CHƠI THẬT VUI</span><h2 id="help-title">Một vòng quay, ba bước nhỏ</h2><ol class="help-steps"><li><strong>Quay & khám phá</strong><p>Bé chạm “Quay nào, bé ơi!” để chọn ngẫu nhiên một con vật.</p></li><li><strong>Nhìn & làm theo</strong><p>Giơ đúng số ngón tay theo hình bàn tay thật. Nhúc nhích các ngón theo động tác của con vật.</p></li><li><strong>Nói & cùng hóa thân</strong><p>Cả lớp nói tên con vật và bắt chước động tác. Cô giáo hoặc bố mẹ cùng quan sát và khích lệ bé nhé!</p></li></ol><div class="rule-note">Luật nhỏ: giơ đúng số ngón tay · nhúc nhích linh hoạt · nói đúng tên con vật.</div><button class="primary-small dialog-done">Bé sẵn sàng rồi!</button></dialog>
+  <dialog id="settings-dialog" aria-labelledby="settings-title"><button class="dialog-close" aria-label="Đóng tùy chỉnh">×</button><span class="section-kicker">GÓC CỦA CÔ & BỐ MẸ</span><h2 id="settings-title">Một chút tùy chỉnh</h2><form id="settings-form"><div class="setting-row"><div><strong>Âm thanh vui nhộn</strong><small>Tiếng vòng quay và tiếng chúc mừng</small></div><input type="checkbox" name="sound" class="toggle" aria-label="Âm thanh vui nhộn"></div><div class="setting-row"><div><strong>Quay không trùng lặp</strong><small>Mỗi con vật xuất hiện một lần trong 5 lượt. Luôn giữ đủ 5 ô trên vòng quay.</small></div><input type="checkbox" name="noRepeat" class="toggle" aria-label="Không lặp trong một vòng"></div><label class="setting-row"><strong>Thời gian quay</strong><select name="duration"><option value="3">Nhanh · 3 giây</option><option value="5">Vừa phải · 5 giây</option><option value="7">Hồi hộp · 7 giây</option></select></label><div class="setting-note">Vòng quay luôn có 5 con vật: muỗi, thỏ, mèo, cua và bướm. Khi đã gặp đủ 5 bạn, game tự bắt đầu vòng mới.</div><button type="button" class="soft-button restart-cycle" id="restart-cycle">Bắt đầu lượt 5 con vật mới ↻</button><button type="submit" class="primary-small">Lưu tùy chỉnh</button></form></dialog>
+  <div id="toast" role="status" class="toast"></div>
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+</body>
+</html>
